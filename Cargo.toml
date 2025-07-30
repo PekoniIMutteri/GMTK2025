@@ -1,0 +1,14 @@
+[package]
+name = "lord_of_the_loop"
+version = "0.1.0"
+edition = "2024"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+bevy = { version = "0.16.1", features = ["dynamic_linking"] }
+avian2d = { version = "0.3.1" }
