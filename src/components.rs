@@ -16,12 +16,13 @@ pub enum GameLayer {
 #[require(
     MoveSpeed,
     DropNode,
-    RigidBody::Dynamic,
+    Input,
+    Collider,
     CollisionLayers::new(
         GameLayer::Player,
         [GameLayer::Default, GameLayer::Enemy, GameLayer::Props, GameLayer::Map],
     ),
-    Collider,
+    RigidBody::Dynamic,
     Sprite
 )]
 pub struct Player;
@@ -45,22 +46,47 @@ pub enum Enemy {
 }
 
 #[derive(Component)]
-#[require(Sprite, Collider, RigidBody::Static,
+#[require(
+    Collider,
     CollisionLayers::new(
         GameLayer::Node,
         [GameLayer::Default, GameLayer::Enemy, GameLayer::Map, GameLayer::Node],
     ),
+    RigidBody::Static,
+    Sprite,
 )]
 pub struct Node;
 
 #[derive(Component)]
-#[require(Sprite, Collider, RigidBody::Static,
+#[require(
+    Collider,
     CollisionLayers::new(
         GameLayer::Node,
         [GameLayer::Default, GameLayer::Enemy, GameLayer::Map],
     ),
+    RigidBody::Static,
+    Sprite,
 )]
 pub struct Link;
+
+#[derive(Component)]
+#[require(
+    Collider,
+    CollisionLayers::new(
+        GameLayer::Map,
+        [
+            GameLayer::Default,
+            GameLayer::Player,
+            GameLayer::Enemy,
+            GameLayer::Props,
+            GameLayer::Node,
+            GameLayer::Map
+        ],
+    ),
+    RigidBody::Static,
+    Sprite,
+)]
+pub struct Map;
 
 #[derive(Component, Default)]
 #[require(Transform, LinearVelocity)]
@@ -79,6 +105,18 @@ pub struct Input {
     drop: KeyCode,
 }
 
+impl Default for Input {
+    fn default() -> Self {
+        Input {
+            left: KeyCode::KeyA,
+            right: KeyCode::KeyD,
+            up: KeyCode::KeyW,
+            down: KeyCode::KeyS,
+            drop: KeyCode::Space,
+        }
+    }
+}
+
 #[derive(Component, Default)]
 #[require(Collider)]
 pub struct KillPlayer;
@@ -86,3 +124,9 @@ pub struct KillPlayer;
 #[derive(Component, Default)]
 #[require(MoveSpeed)]
 pub struct AI;
+
+#[derive(Component, Default)]
+pub struct LastNode;
+
+#[derive(Component, Default)]
+pub struct FirstNode;

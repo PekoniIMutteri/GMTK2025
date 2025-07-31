@@ -1,35 +1,35 @@
 # TO DO
 
-- [ ] Add player
-  - [ ] Make MoveSpeed
-  - [ ] Make Input
-  - [ ] Make Player
-- [ ] Add Enemy
-- [ ] Add Node
-- [ ] Add Link
-- [ ] Add Map
-
 ## Requirements
 
 - Player
-  - Sprite
   - MoveSpeed
+  - DropNode
   - Input
   - Collider
-  - DropNode
+  - ColliderLayers
+  - RigidBody
+  - Sprite
 - Enemy
-  - Sprite
-  - MoveSpeed
-  - Collider
   - KillPlayer
+  - MoveSpeed
   - AI
+  - Collider
+  - ColliderLayers
+  - RigidBody
+  - Sprite
 - Node
-  - Sprite
   - Collider
-  - (LastNode)
+  - ColliderLayers
+  - RigidBody
+  - Sprite
 - Link
-  - Sprite
   - Collider
+  - ColliderLayers
+  - RigidBody
+  - Sprite
 - Map
-  - Sprite
   - Collider
+  - ColliderLayers
+  - RigidBody
+  - Sprite
