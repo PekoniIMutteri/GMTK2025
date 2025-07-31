@@ -14,11 +14,7 @@ Or once the game jam is finished, you can get the game on itch.io.
 
 ## ROADMAP
 
-- [ ] Player input
-- [ ] Drop Node
-- [ ] Link Nodes
-- [ ] Basic Enemies
-- [ ] kill Enemies
-- [ ] Make Map
-- [ ] Add more spells
-- [ ] Add more Enemies
+- [x] Components
+- [ ] Observers
+- [ ] Systems
+- [ ] Assets
