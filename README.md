@@ -13,6 +13,7 @@ cargo run
 
 ## ROADMAP
 
+- [x] Basic Window
 - [ ] Basic movement
 - [ ] Node dropping
 - [ ] Node linking and spells (speed up)

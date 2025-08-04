@@ -16,10 +16,6 @@ fn main() {
         }))
         .add_plugins(PhysicsPlugins::default())
         .add_plugins(PhysicsDebugPlugin::default())
-        .add_systems(Startup, hello)
+        .add_plugins(systems::MySystems)
         .run();
-}
-
-fn hello() {
-    println!("hello");
 }
