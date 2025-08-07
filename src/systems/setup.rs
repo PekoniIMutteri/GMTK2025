@@ -1,0 +1,30 @@
+use crate::components::*;
+use avian2d::prelude::*;
+use bevy::prelude::*;
+
+pub struct SetupPlugin;
+
+impl Plugin for SetupPlugin {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Startup, spawn_camera)
+            .add_systems(Startup, spawn_player);
+    }
+}
+
+fn spawn_player(mut commands: Commands) {
+    commands.spawn((
+        markers::Player,
+        basic::Movement::new(200.0),
+        basic::Input::default(),
+        RigidBody::Dynamic,
+        Collider::circle(10.0),
+        Sprite {
+            custom_size: Some(Vec2::splat(20.0)),
+            ..Default::default()
+        },
+    ));
+}
+
+fn spawn_camera(mut commands: Commands) {
+    commands.spawn(Camera2d);
+}

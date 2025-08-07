@@ -14,7 +14,8 @@ cargo run
 ## ROADMAP
 
 - [x] Basic Window
-- [ ] Basic movement
+- [x] Basic movement
+- [ ] Flesh out movement
 - [ ] Node dropping
 - [ ] Node linking and spells (speed up)
 - [ ] Enemies
